@@ -1,0 +1,25 @@
+{
+  "name": "backend-test",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "repository": "git@github.com:jayfrey/backend-test.git",
+  "author": "Jay Frey <jf.kuan@omesti.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "start:dev": "nodemon",
+    "start": "yarn build && node dist/app.js"
+  },
+  "dependencies": {
+    "axios": "^1.2.6",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "nodemon": "^2.0.20",
+    "rimraf": "^4.1.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  }
+}
