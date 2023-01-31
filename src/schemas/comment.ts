@@ -3,7 +3,7 @@ import { Comment } from "../models/Comment";
 
 export const commentSchema = {
   search: Joi.object({
-    page: Joi.number().min(1).required(),
+    page: Joi.number().min(1).optional(),
     perPage: Joi.number().min(1).optional(),
   })
     .when(Joi.object({ search: Joi.exist() }).unknown(), {

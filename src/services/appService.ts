@@ -1,6 +1,5 @@
 import { IComment } from "../interfaces/IComment";
 import { IPost } from "../interfaces/IPost";
-import { Post } from "../models/Post";
 
 type TopPost = {
   post_id: number;
