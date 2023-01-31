@@ -1,25 +1,26 @@
 import { IComment } from "../interfaces/IComment";
 import { IPost } from "../interfaces/IPost";
-import { getComments, getPosts } from "../services/callAPI";
 import { getTopPosts, getFilteredComments } from "../services/appService";
+import { StatusCodes } from "http-status-codes";
 import { paginate } from "../utils/pagination";
 
-const httpConstants = require("http2").constants;
+import { getComments, getPosts } from "../services/callAPI";
 
-module.exports = (app: any) => {
-  app.get("/posts/top", async (_: any, res: any) => {
+export class AppController {
+  async getTopPosts(_: any, res: any) {
     const comments: IComment[] = await getComments();
     const posts: IPost[] = await getPosts();
 
-    res.status(httpConstants.HTTP_STATUS_OK).json(getTopPosts(comments, posts));
-  });
+    res.status(StatusCodes.OK).json(getTopPosts(comments, posts));
+  }
 
-  app.get("/comments/", async (req: any, res: any) => {
+  async search(req: any, res: any) {
     const comments: IComment[] = await getComments();
 
     const search = req.query.search;
     const filterBy = req.query.filterBy;
     const page = req.query.page;
+    const perPage = req.query.perPage;
 
     let filteredComments: IComment[];
 
@@ -29,8 +30,6 @@ module.exports = (app: any) => {
       filteredComments = comments;
     }
 
-    res
-      .status(httpConstants.HTTP_STATUS_OK)
-      .json(paginate(filteredComments, page));
-  });
-};
+    res.status(StatusCodes.OK).json(paginate(filteredComments, page, perPage));
+  }
+}

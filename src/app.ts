@@ -1,5 +1,6 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+import express from "express";
+import bodyParser from "body-parser";
+import routes from "./routes";
 
 const app = express();
 app.use(bodyParser.json()); // To support JSON-encoded bodies
@@ -10,7 +11,6 @@ app.use(
   })
 );
 
-const routes = require("./api/routes");
 routes(app);
 
 app.listen(3000, () => {
