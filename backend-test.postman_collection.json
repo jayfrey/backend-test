@@ -1,0 +1,79 @@
+{
+	"info": {
+		"_postman_id": "372b01c6-081f-4ddf-826f-81022d56317e",
+		"name": "backend-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19187952"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/comments?page=1&search=reiciendis&filterBy=name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/comments?search=reiciendis&filterBy=name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"comments"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "reiciendis",
+							"description": "Search text field (Required only if filterBy field is present)"
+						},
+						{
+							"key": "filterBy",
+							"value": "name",
+							"description": "Filter by a field or multiple fields (Required only if search is present) "
+						},
+						{
+							"key": "filterBy",
+							"value": "body",
+							"description": "Filter by a field or multiple fields (Required only if search is present) ",
+							"disabled": true
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Page number (Default: 1)",
+							"disabled": true
+						},
+						{
+							"key": "perPage",
+							"value": "10",
+							"description": "Number of items per page (Default: 10)",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/posts/top",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/posts/top",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"posts",
+						"top"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
